@@ -5,7 +5,9 @@ import '../data_resource/api_service.dart';
 
 class QuoteRepository
 {
-  final apiService = ApiService();
+  final ApiService apiService;
+
+  QuoteRepository(this.apiService);
 
   Future<QuoteModel> getRandomQuote() async
   {

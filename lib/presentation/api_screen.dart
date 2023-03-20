@@ -1,7 +1,5 @@
 import 'package:api_handler/data/repositories/quote_repository.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-
 import '../data/data_resource/api_service.dart';
 import '../data/models/quote_model.dart';
 
@@ -13,7 +11,7 @@ class ApiScreen extends StatefulWidget {
 }
 
 class _ApiScreenState extends State<ApiScreen> {
-  final QuoteRepository quoteRepository = QuoteRepository();
+  final QuoteRepository quoteRepository = QuoteRepository(ApiService());
   List<QuoteModel> quotes = [];
   bool isLoading = true;
   @override
