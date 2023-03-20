@@ -35,13 +35,22 @@ class _ApiScreenState extends State<ApiScreen> {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : ListView.separated(
-              itemBuilder: (context, index) => Card(
-                      child: ListTile(
-                    title: Text(quotes[index].quote),
-                  )),
-              separatorBuilder: (context, index) => const SizedBox(height: 10),
-              itemCount: quotes.length),
+          : Column(
+            children: [
+              Expanded(
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, index) => Card(
+                            child: ListTile(
+                          title: Text(quotes[index].quote),
+                        )),
+                    separatorBuilder: (context, index) => const SizedBox(height: 10),
+                    itemCount: quotes.length),
+              ),
+              const SizedBox(height: 10,),
+            ],
+          ),
     );
   }
 }
